@@ -1,0 +1,116 @@
+body {
+    background-color: white;
+    font-size: 18px;
+    font-family: "Calibri Light", serif;
+}
+
+.signin {
+    margin-top: 55px;
+}
+
+button {
+    width: 116px;
+    height: 29px;
+    margin-top: 3px;
+    background-color: #4989C7;
+    border-radius: 8px;
+    border-width: 1px;
+    text-align: center;
+    color: white;
+}
+
+button:hover {
+    background-color: white;
+    color: #4989C7;
+    border-color: #4989C7;
+}
+
+button:focus {
+    outline: none !important;
+}
+
+button:active {
+    outline: none;
+}
+
+.navbar-default {
+    background-color: rgba(128, 139, 137, 0.67);
+
+}
+
+.dropdown-toggle {
+    color: black;
+    align: right;
+}
+
+#exampleInputEmail1 #exampleInputPassword1 {
+    width: 5px;
+    height: 10px;
+}
+
+h3 {
+    margin-top: 55px;
+}
+
+.checkTable {
+    margin: 5px;
+    margin-bottom: 10px;
+    border: 1px;
+}
+
+.nav li {
+    display: inline-block;
+}
+.btn{
+    width: 100px;
+    height: 30px;
+    position: relative;
+    right: -500px;
+    background-color: white;
+    text-align: center;
+    margin: 5px;
+    color: #4989C7;
+    font-size: 20px;
+    margin-top: 6px;
+    padding-bottom: 35px;
+    font-weight: 600;
+}
+.btn:hover{
+    background-color: #4989C7;
+    color: white;
+    border-color: white;
+}
+.btn:focus{
+    background-color: white;
+    color: #4989C7;
+    border-color: white;
+}
+.head{
+    width: 100%;
+    height: 20%;
+}
+.navbar-default {
+    background-color: #4989C7;
+}
+.textData td{
+    width: 77px;
+    padding-top: 5px;
+}
+.textDataRegistr td{
+    width: 120px;
+    padding-top: 5px;
+}
+#time{
+    margin-left: 20px;
+}
+.footer{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    background-color: #4989C7;
+    margin-top: 20px;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    padding-top: 12px;
+}
