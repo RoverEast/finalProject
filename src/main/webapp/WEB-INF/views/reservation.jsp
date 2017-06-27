@@ -16,28 +16,44 @@
 <t:_tag title="Reservation">
     <jsp:body>
         <form method="post" action="${pageContext.request.contextPath}/reservation" class="signin">
-            <fmt:message key="appointment" bundle="${messages}"/>
-            <br>
-            <fmt:message key="doctor" bundle="${messages}"/>:
-            <c:if test="${fn:length(docList) eq 0}">
-                <fmt:message key="emptyList" bundle="${messages}"/>
-            </c:if>
-            <c:forEach items="${docList}" var="docList">
-                <input required type="radio" name="doc" value="${docList.id}">${docList.firstName} ${docList.secondName}
-            </c:forEach><br>
-            <fmt:message key="nurse" bundle="${messages}"/>:
-            <c:if test="${fn:length(nurseList) eq 0}">
-                <fmt:message key="emptyList" bundle="${messages}"/>
-            </c:if>
-            <c:forEach items="${nurseList}" var="nurseList">
-                <input required type="radio" name="nurse" value="${nurseList.id}">${nurseList.firstName} ${nurseList.secondName}
-            </c:forEach><br>
+            <h3><fmt:message key="appointment" bundle="${messages}"/></h3>
+            <table class="textDataReserv">
+                <tr>
+                    <td>
+                        <fmt:message key="doctor" bundle="${messages}"/>:
+                    </td>
+                    <td>
+                        <c:if test="${fn:length(docList) eq 0}">
+                            <fmt:message key="emptyList" bundle="${messages}"/>
+                        </c:if>
+                        <c:forEach items="${docList}" var="docList">
+                            <input required type="radio" name="doc"
+                                   value="${docList.id}"> ${docList.firstName} ${docList.secondName}<br>
+                        </c:forEach>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <fmt:message key="nurse" bundle="${messages}"/>:
+                    </td>
+                    <td>
+                        <c:if test="${fn:length(nurseList) eq 0}">
+                            <fmt:message key="emptyList" bundle="${messages}"/>
+                        </c:if>
+                        <c:forEach items="${nurseList}" var="nurseList">
+                            <input required type="radio" name="nurse"
+                                   value="${nurseList.id}"> ${nurseList.firstName} ${nurseList.secondName}<br>
+                        </c:forEach>
+                    </td>
+                </tr>
+            </table>
             <c:if test="${fn:length(docList) gt 0 and fn:length(nurseList) gt 0}">
-            <button type="submit" name="reserv"><fmt:message key="enroll" bundle="${messages}"/></button>
-            </c:if>
+            <button type="submit" name="reserv"><fmt:message key="enroll"
+            bundle="${messages}"/></button>
+        </c:if>
             <c:if test="${fn:length(docList) eq 0 or fn:length(nurseList) eq 0}">
-                <fmt:message key="StuffIsBusy" bundle="${messages}"/>
-            </c:if>
+            <fmt:message key="StuffIsBusy" bundle="${messages}"/>
+        </c:if>
             <br>
         </form>
     </jsp:body>

@@ -100,6 +100,11 @@ h3 {
     width: 120px;
     padding-top: 5px;
 }
+.textDataReserv td{
+    width: 200px;
+    padding-top: 5px;
+
+}
 #time{
     margin-left: 20px;
 }

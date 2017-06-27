@@ -7,31 +7,48 @@ import com.epam.models.Sick;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Created by Администратор on 30.05.2017.
- */
+
 public class SickService {
 
     private SickDao sickDao;
 
+    /**
+     * create connection
+     *
+     * @throws SQLException
+     */
     public SickService() throws SQLException {
         sickDao = new SickDao(new Executor(ConnectionFactory.getInstance().getConnection()));
     }
 
+    /**
+     * get all patient sick
+     *
+     * @param id patient id
+     * @return list of sick
+     */
     public List<Sick> getAllUserSick(Long id) {
         return sickDao.findAllPatientSicksById(id);
     }
 
+    /**
+     * get all patient sick
+     *
+     * @return list of sick
+     */
     public List<Sick> getAllSicks() {
         return sickDao.findAll();
     }
 
-    public Sick findByID(Long id){
-        return sickDao.IdFind(id);
-    }
-
-    public boolean checkSickId(Long patientId,Long sickId) {
-        return sickDao.IdFind(patientId,sickId) != null;
+    /**
+     * check if user has mixture
+     *
+     * @param patientId patient id
+     * @param sickId    sick id
+     * @return true if has
+     */
+    public boolean checkSickId(Long patientId, Long sickId) {
+        return sickDao.IdFind(patientId, sickId) != null;
     }
 
 }

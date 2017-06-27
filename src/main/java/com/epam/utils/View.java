@@ -8,14 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by Администратор on 26.05.2017.
- */
+
 public class View {
 
     private static final String PREFIX = "/WEB-INF/views/";
     private static final String SUFFIX = ".jsp";
 
+    /**
+     * view page with name
+     * @param pageName
+     * page name
+     * @param request
+     * request
+     * @param response
+     * response
+     */
     public static void viewPage(String pageName, HttpServletRequest request, HttpServletResponse response){
         try {
             request.getRequestDispatcher(PREFIX + pageName + SUFFIX).forward(request, response);
