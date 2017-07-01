@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class PersonalService {
 
-    PersonalDao personalDao;
+    private PersonalDao personalDao;
 
     /**
      * create connection

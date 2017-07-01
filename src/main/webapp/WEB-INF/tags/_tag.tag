@@ -18,25 +18,8 @@
 
     <meta charset="utf-8">
 
-
-    <!-- Bootstrap core CSS -->
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css"/>
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/datapicker/bootstrap-datetimepicker.css"/>
-    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/easy-autocomplete/easy-autocomplete.css" rel="stylesheet">
-
     <link href="${pageContext.request.contextPath}/resources/bootstrap/css/style.css" rel="stylesheet">
-
-
-
 
 </head>
 <body>
@@ -94,16 +77,6 @@
 </div>
 </body>
 
-<script type="text/javascript"
-        src="${pageContext.request.contextPath}/resources/jquery/jquery-3.1.1.js"></script>
-<script type="text/javascript"
-        src="${pageContext.request.contextPath}/resources/datapicker/moment-with-locales.js"></script>
-<script type="text/javascript"
-        src="${pageContext.request.contextPath}/resources/datapicker/moment.js"></script>
-<script type="text/javascript"
-        src="${pageContext.request.contextPath}/resources/datapicker/bootstrap-datetimepicker.js"></script>
-<script type="text/javascript"
-        src="${pageContext.request.contextPath}/resources/easy-autocomplete/jquery.easy-autocomplete.js"></script>
 <script type="text/javascript"
         src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.js"></script>
 

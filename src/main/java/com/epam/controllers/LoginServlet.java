@@ -31,7 +31,6 @@ public class LoginServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         View.viewPage("main",req,resp);
-        //req.setAttribute("users", service.getAllUsers());
     }
 
     @Override

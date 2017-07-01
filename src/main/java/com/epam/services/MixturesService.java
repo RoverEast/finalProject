@@ -41,16 +41,6 @@ public class MixturesService {
     }
 
     /**
-     * get mixture
-     *
-     * @param id mixture id
-     * @return mixture
-     */
-    public Mixtures findByID(Long id) {
-        return mixturesDao.IdFind(id);
-    }
-
-    /**
      * check if user has mixture
      *
      * @param patientId patient id
@@ -58,6 +48,6 @@ public class MixturesService {
      * @return true if has
      */
     public boolean checkMixtureId(Long patientId, Long mixtureId) {
-        return mixturesDao.IdFind(patientId, mixtureId) != null;
+        return mixturesDao.idFind(patientId, mixtureId) != null;
     }
 }

@@ -12,12 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Администратор on 29.05.2017.
- */
 @WebServlet("/patient")
 public class PatientServlet extends HttpServlet {
 
@@ -44,11 +40,9 @@ public class PatientServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //String login = request.getParameter("login");
         User user = (User) request.getSession().getAttribute("user");
-
-        User doctor = service.FindPersonal(1,user.getId());
-        User nurse = service.FindPersonal(2,user.getId());
+        User doctor = service.findPersonal(1,user.getId());
+        User nurse = service.findPersonal(2,user.getId());
         List<User> docList = service.getAllInPosition(1);
         List<Sick> sickList = sickService.getAllUserSick(user.getId());
         List<Mixtures> mixturesList = mixturesService.getAllUserMixtures(user.getId());
@@ -64,7 +58,6 @@ public class PatientServlet extends HttpServlet {
 
         if (request.getParameter("ok")!=null){
             Discharge.deleteUser(user);
-            //response.sendRedirect("/logout");
             View.viewPage("main",request,response);
         }
 
@@ -78,13 +71,9 @@ public class PatientServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //User user = (User) request.getSession().getAttribute("user");
-
-
         User user = (User) request.getSession().getAttribute("user");
-
-        User doctor = service.FindPersonal(1,user.getId());
-        User nurse = service.FindPersonal(2,user.getId());
+        User doctor = service.findPersonal(1,user.getId());
+        User nurse = service.findPersonal(2,user.getId());
         List<User> docList = service.getAllInPosition(1);
         List<Sick> sickList = sickService.getAllUserSick(user.getId());
         List<Mixtures> mixturesList = mixturesService.getAllUserMixtures(user.getId());
@@ -97,19 +86,13 @@ public class PatientServlet extends HttpServlet {
         request.setAttribute("operationsList",operationsList);
         request.setAttribute("proceduresList",proceduresList);
         request.setAttribute("user",user);
-
-        System.out.println(Discharge.checkUser(user));
         if (Discharge.checkUser(user)){
-            View.viewPage("discharge",request,response);
+            View.viewPage("patientPages/discharge",request,response);
             patientService.deleteUserById(user.getId());
         }
         if (!patientService.checkUserByUserId(user.getId()))
             request.getRequestDispatcher("reservation").forward(request, response);
-        View.viewPage("patientPage",request,response);
-
-
+        View.viewPage("patientPages/patientPage",request,response);
     }
-
-
 }
 

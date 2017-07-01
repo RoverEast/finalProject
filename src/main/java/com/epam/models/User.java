@@ -2,9 +2,6 @@ package com.epam.models;
 
 import java.sql.Date;
 
-/**
- * Created by Администратор on 22.05.2017.
- */
 public class User {
     private long id ;
     private String userName;

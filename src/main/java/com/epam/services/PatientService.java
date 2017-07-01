@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PatientService {
 
-    PatientDao patientDao;
+    private PatientDao patientDao;
 
     /**
      * create connection
@@ -31,22 +31,13 @@ public class PatientService {
     }
 
     /**
-     * get all patients
-     *
-     * @return list of patients
-     */
-    public List<Patient> getAllUsers() {
-        return patientDao.findAll();
-    }
-
-    /**
      * find patient
      *
      * @param id patient id
      * @return true if patient has been found
      */
     public boolean checkUserByUserId(Long id) {
-        return patientDao.IdFind(id) != null;
+        return patientDao.idFind(id) != null;
     }
 
     /**

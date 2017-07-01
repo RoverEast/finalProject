@@ -14,9 +14,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Created by Администратор on 03.06.2017.
- */
 @WebServlet("/handler")
 public class PersonalHandlerServlet extends HttpServlet {
 
@@ -26,7 +23,6 @@ public class PersonalHandlerServlet extends HttpServlet {
     private OperationsService operationsService;
     private ProcedureService procedureService;
     private PatientService patientService;
-    private PersonalService personalService;
 
     @Override
     public void init() throws ServletException {
@@ -37,14 +33,12 @@ public class PersonalHandlerServlet extends HttpServlet {
             operationsService = new OperationsService();
             procedureService = new ProcedureService();
             patientService = new PatientService();
-            personalService = new PersonalService();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("personal handler post");
         String locale = String.valueOf((request.getSession().getAttribute("locale")));
         Long patientId = Long.parseLong(request.getParameter("patient"));
         User user = (User) request.getSession().getAttribute("user");
@@ -135,12 +129,11 @@ public class PersonalHandlerServlet extends HttpServlet {
 
         if (request.getParameter("select")!=null){
             if(user.getPosition().equals(Position.DOC)){
-                View.viewPage("checkup",request,response);
+                View.viewPage("personalPages/checkup",request,response);
             }else if (user.getPosition().equals(Position.NURSE)){
-                View.viewPage("checkupNurse",request,response);
+                View.viewPage("personalPages/checkupNurse",request,response);
             }
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -174,9 +167,9 @@ public class PersonalHandlerServlet extends HttpServlet {
             request.setAttribute("message",message);
         }
         if(user.getPosition().equals(Position.DOC)){
-            View.viewPage("checkup",request,response);
+            View.viewPage("personalPages/checkup",request,response);
         }else if (user.getPosition().equals(Position.NURSE)){
-            View.viewPage("checkupNurse",request,response);
+            View.viewPage("personalPages/checkupNurse",request,response);
         }
     }
 }

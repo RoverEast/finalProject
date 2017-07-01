@@ -13,11 +13,6 @@ import java.io.IOException;
 public class LanguageServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        View.viewPage(req.getRequestURI(), req, resp);
-    }
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String locale = req.getParameter("local");
         if (locale.equals("rus")){

@@ -5,7 +5,7 @@
 <fmt:setLocale value="${locale}"/>
 <fmt:setBundle basename="messages" var="messages"/>
 <%@ page isErrorPage="true" contentType="text/html;charset=UTF-8" language="java" %>
-<t:_tag>
+<t:_tag title="Error">
     <jsp:body>
         <fmt:message key="pageNotFound" bundle="${messages}"/>
     </jsp:body>

@@ -1,8 +1,6 @@
 package com.epam.models;
 
-/**
- * Created by Администратор on 02.06.2017.
- */
+
 public class Procedures {
 
     private long id;
@@ -43,8 +41,7 @@ public class Procedures {
 
         Procedures that = (Procedures) o;
 
-        if (id != that.id) return false;
-        return name != null ? name.equals(that.name) : that.name == null;
+        return id == that.id && (name != null ? name.equals(that.name) : that.name == null);
     }
 
     @Override

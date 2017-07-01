@@ -48,6 +48,6 @@ public class ProcedureService {
      * @return true if has
      */
     public boolean checkProcedureId(Long patientId, Long procedureId) {
-        return proceduresDao.IdFind(patientId, procedureId) != null;
+        return proceduresDao.idFind(patientId, procedureId) != null;
     }
 }

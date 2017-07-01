@@ -1,15 +1,12 @@
 package com.epam.dao;
 
 import com.epam.executor.Executor;
-import com.epam.mapper.UserMap;
+import com.epam.mapper.UserMapper;
 import com.epam.models.User;
 
 import java.util.List;
 import org.apache.log4j.Logger;
 
-/**
- * Created by Администратор on 23.05.2017.
- */
 public class UserDao implements Dao<User, Long> {
 
     private static final String SELECT_ALL_QUERY = "SELECT * FROM user";
@@ -34,24 +31,20 @@ public class UserDao implements Dao<User, Long> {
     }
 
     @Override
-    public User IdFind(Long id) {
-        return executor.selectOne(FIND_BY_ID, new UserMap(),id);
+    public User idFind(Long id) {
+        return executor.selectOne(FIND_BY_ID, new UserMapper(),id);
     }
 
-    public User FindPersonal(int position, long patintId){
-        return executor.selectOne(FIND_USER_PERSONAL_BY_PERSONAL_POSITION, new UserMap(), position, patintId);
+    public User findPersonal(int position, long patintId){
+        return executor.selectOne(FIND_USER_PERSONAL_BY_PERSONAL_POSITION, new UserMapper(), position, patintId);
     }
 
     public List<User> findAllPatientsById(Long id) {
-        return executor.selectList(FIND_ALL_PERSONAL_PATIENTS, new UserMap(),id);
-    }
-
-    public User PositionFind(int position) {
-        return executor.selectOne(FIND_BY_POSITION, new UserMap(),position);
+        return executor.selectList(FIND_ALL_PERSONAL_PATIENTS, new UserMapper(),id);
     }
 
     public User LoginFind(String username) {
-        return executor.selectOne(FIND_BY_USENAME, new UserMap(),username);
+        return executor.selectOne(FIND_BY_USENAME, new UserMapper(),username);
     }
 
     @Override
@@ -62,24 +55,20 @@ public class UserDao implements Dao<User, Long> {
 
     @Override
     public List<User> findAll() {
-        return executor.selectList(SELECT_ALL_QUERY, new UserMap());
+        return executor.selectList(SELECT_ALL_QUERY, new UserMapper());
     }
 
-    public User secondNameFind(Long id) {
-        return executor.selectOne(FIND_BY_SECOND_NAME, new UserMap(),id);
-    }
-
-    public int insertUser(User user){
-        return executor.execUpdate(INSERT_USER,user.getUserName(),user.getPassword(),user.getPosition(),user.getFirstName(),user.getSecondName(),user.getMidletName(),
+    public void insertUser(User user){
+        executor.execUpdate(INSERT_USER, user.getUserName(), user.getPassword(), user.getPosition(), user.getFirstName(), user.getSecondName(), user.getMidletName(),
                 user.getBirtDate());
     }
 
     public User userNameFind(String username) {
-        return executor.selectOne(FIND_BY_USENAME, new UserMap(),username);
+        return executor.selectOne(FIND_BY_USENAME, new UserMapper(),username);
     }
 
     public List<User> findByPosition(int position) {
-        return executor.selectList(FIND_BY_POSITION, new UserMap(),position);
+        return executor.selectList(FIND_BY_POSITION, new UserMapper(),position);
     }
 
 

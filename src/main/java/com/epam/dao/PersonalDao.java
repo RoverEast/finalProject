@@ -1,15 +1,11 @@
 package com.epam.dao;
 
 import com.epam.executor.Executor;
-import com.epam.models.Patient;
 import com.epam.models.Personal;
 
 import java.util.List;
 import org.apache.log4j.Logger;
 
-/**
- * Created by Администратор on 31.05.2017.
- */
 public class PersonalDao implements Dao<Personal,Long> {
 
     private static Logger logger = Logger.getLogger(PersonalDao.class);
@@ -23,12 +19,12 @@ public class PersonalDao implements Dao<Personal,Long> {
         this.executor = executor;
     }
 
-    public int insertPersonal(Personal personal) {
-        return executor.execUpdate(INSERT_USER, personal.getPatient_id(), personal.getUser_id());
+    public void insertPersonal(Personal personal) {
+        executor.execUpdate(INSERT_USER, personal.getPatient_id(), personal.getUser_id());
     }
 
     @Override
-    public Personal IdFind(Long id) {
+    public Personal idFind(Long id) {
         logger.error(new UnsupportedOperationException());
         throw new  UnsupportedOperationException();
     }

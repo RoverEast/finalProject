@@ -1,8 +1,5 @@
 package com.epam.models;
 
-/**
- * Created by Администратор on 22.05.2017.
- */
 public class Operations {
     private long id;
     private String name;
@@ -38,8 +35,7 @@ public class Operations {
 
         Operations that = (Operations) o;
 
-        if (id != that.id) return false;
-        return name != null ? name.equals(that.name) : that.name == null;
+        return id == that.id && (name != null ? name.equals(that.name) : that.name == null);
     }
 
     @Override

@@ -3,7 +3,6 @@ package com.epam.controllers;
 import com.epam.models.Patient;
 import com.epam.models.Personal;
 import com.epam.models.User;
-import com.epam.services.OperationsService;
 import com.epam.services.PatientService;
 import com.epam.services.PersonalService;
 import com.epam.services.UserService;
@@ -19,9 +18,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Created by Администратор on 30.05.2017.
- */
 @WebServlet("/reservation")
 public class ReservationServlet extends HttpServlet {
 
@@ -29,7 +25,6 @@ public class ReservationServlet extends HttpServlet {
     private UserService service;
     private PatientService patientService;
     private PersonalService personalService;
-    private OperationsService operationsService;
 
     @Override
     public void init() throws ServletException {
@@ -37,7 +32,6 @@ public class ReservationServlet extends HttpServlet {
             service = new UserService();
             patientService = new PatientService();
             personalService = new PersonalService();
-            operationsService = new OperationsService();
         } catch (SQLException e) {
             e.printStackTrace();
             logger.error(e);
@@ -46,7 +40,6 @@ public class ReservationServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
-        //String login = request.getParameter("login");
         if (request.getParameter("reserv") != null) {
             int personalId1 = Integer.parseInt(request.getParameter("doc"));
             int personalId2 = Integer.parseInt(request.getParameter("nurse"));
@@ -57,13 +50,11 @@ public class ReservationServlet extends HttpServlet {
             personalService.addPersonal(personal1);
             personalService.addPersonal(personal2);
             request.getRequestDispatcher("/account").forward(request, response);
-            //View.viewPage("patientPage",request,response);
         }
         List<User> docList = service.getAllInPosition(1);
         List<User> nurseList = service.getAllInPosition(2);
         request.setAttribute("docList", docList);
         request.setAttribute("nurseList", nurseList);
-        //View.viewPage("reservation", request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -72,6 +63,6 @@ public class ReservationServlet extends HttpServlet {
         List<User> nurseList = service.getAllInPosition(2);
         request.setAttribute("docList", docList);
         request.setAttribute("nurseList", nurseList);
-        View.viewPage("reservation", request, response);
+        View.viewPage("patientPages/reservation", request, response);
     }
 }

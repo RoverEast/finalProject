@@ -35,7 +35,7 @@ CREATE TABLE `mixtures` (
 
 LOCK TABLES `mixtures` WRITE;
 /*!40000 ALTER TABLE `mixtures` DISABLE KEYS */;
-INSERT INTO `mixtures` VALUES (1,'Mixture 1'),(2,'Mixture 2');
+INSERT INTO `mixtures` VALUES (1,'Amidaroni'),(2,'Furosimidi');
 /*!40000 ALTER TABLE `mixtures` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `operations` (
 
 LOCK TABLES `operations` WRITE;
 /*!40000 ALTER TABLE `operations` DISABLE KEYS */;
-INSERT INTO `operations` VALUES (1,'Operation 1'),(2,'Operation 2');
+INSERT INTO `operations` VALUES (1,'Resectio'),(2,'Amputatio');
 /*!40000 ALTER TABLE `operations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +141,7 @@ CREATE TABLE `procedures` (
 
 LOCK TABLES `procedures` WRITE;
 /*!40000 ALTER TABLE `procedures` DISABLE KEYS */;
-INSERT INTO `procedures` VALUES (1,'Procedure 1'),(2,'Procedure 2');
+INSERT INTO `procedures` VALUES (1,'Palpatio'),(2,'Auscultatio');
 /*!40000 ALTER TABLE `procedures` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,7 +165,7 @@ CREATE TABLE `sick` (
 
 LOCK TABLES `sick` WRITE;
 /*!40000 ALTER TABLE `sick` DISABLE KEYS */;
-INSERT INTO `sick` VALUES (1,'Sick 1'),(2,'Sick 2');
+INSERT INTO `sick` VALUES (1,'Anemia'),(2,'Aplasia');
 /*!40000 ALTER TABLE `sick` ENABLE KEYS */;
 UNLOCK TABLES;
 

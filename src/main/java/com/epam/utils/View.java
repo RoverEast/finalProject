@@ -14,15 +14,6 @@ public class View {
     private static final String PREFIX = "/WEB-INF/views/";
     private static final String SUFFIX = ".jsp";
 
-    /**
-     * view page with name
-     * @param pageName
-     * page name
-     * @param request
-     * request
-     * @param response
-     * response
-     */
     public static void viewPage(String pageName, HttpServletRequest request, HttpServletResponse response){
         try {
             request.getRequestDispatcher(PREFIX + pageName + SUFFIX).forward(request, response);

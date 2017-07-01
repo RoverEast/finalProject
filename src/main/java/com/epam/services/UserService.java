@@ -9,7 +9,7 @@ import java.util.List;
 
 public class UserService {
 
-    UserDao userDao;
+    private UserDao userDao;
 
     /**
      * create connection
@@ -47,7 +47,7 @@ public class UserService {
      * @return user
      */
     public User getById(Long id) {
-        return userDao.IdFind(id);
+        return userDao.idFind(id);
     }
 
     /**
@@ -57,8 +57,8 @@ public class UserService {
      * @param patintId patient id
      * @return personal
      */
-    public User FindPersonal(int position, long patintId) {
-        return userDao.FindPersonal(position, patintId);
+    public User findPersonal(int position, long patintId) {
+        return userDao.findPersonal(position, patintId);
     }
 
     /**
@@ -88,7 +88,7 @@ public class UserService {
      * @param login user login
      * @return true if user has been found
      */
-    public boolean checkUserByLogin(String login) {
+    private boolean checkUserByLogin(String login) {
         return userDao.userNameFind(login) != null;
     }
 

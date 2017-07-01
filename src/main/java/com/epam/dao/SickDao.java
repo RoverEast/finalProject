@@ -1,19 +1,12 @@
 package com.epam.dao;
 
 import com.epam.executor.Executor;
-import com.epam.executor.Map;
-import com.epam.mapper.PatientMap;
-import com.epam.mapper.SickMap;
+import com.epam.mapper.SickMapper;
 import com.epam.models.Sick;
 import org.apache.log4j.Logger;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Created by Администратор on 25.05.2017.
- */
 public class SickDao implements Dao<Sick, Long> {
 
     private static final String SELECT_ALL_QUERY = "SELECT * FROM sick";
@@ -34,12 +27,12 @@ public class SickDao implements Dao<Sick, Long> {
     }
 
 
-    public Sick IdFind(Long patientId,Long sickId) {
-        return executor.selectOne(FIND_BY_ID, new SickMap(),patientId,sickId);
+    public Sick idFind(Long patientId, Long sickId) {
+        return executor.selectOne(FIND_BY_ID, new SickMapper(),patientId,sickId);
     }
 
     @Override
-    public Sick IdFind(Long id) {
+    public Sick idFind(Long id) {
         return null;
     }
 
@@ -51,14 +44,11 @@ public class SickDao implements Dao<Sick, Long> {
 
     @Override
     public List<Sick> findAll() {
-        return executor.selectList(SELECT_ALL_QUERY, new SickMap());
+        return executor.selectList(SELECT_ALL_QUERY, new SickMapper());
     }
 
-    public Sick nameFind(String name) {
-        return executor.selectOne(FIND_BY_NAME, new SickMap(),name);
-    }
 
     public List<Sick> findAllPatientSicksById(Long id){
-        return executor.selectList(SELECT_ALL_PATIENT_SICK, new SickMap(), id);
+        return executor.selectList(SELECT_ALL_PATIENT_SICK, new SickMapper(), id);
     }
 }

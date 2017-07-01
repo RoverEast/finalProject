@@ -1,8 +1,5 @@
 package com.epam.models;
 
-/**
- * Created by Администратор on 26.05.2017.
- */
 public enum  Position {
     DOC(1), NURSE(2), PATIENT(3);
 

@@ -1,8 +1,5 @@
 package com.epam.models;
 
-/**
- * Created by Администратор on 22.05.2017.
- */
 public class Patient {
 
     private long id;
@@ -91,8 +88,7 @@ public class Patient {
         if (idSick != patient.idSick) return false;
         if (idMixture != patient.idMixture) return false;
         if (idOperations != patient.idOperations) return false;
-        if (user_ID != patient.user_ID) return false;
-        return idProcedure == patient.idProcedure;
+        return user_ID == patient.user_ID && idProcedure == patient.idProcedure;
     }
 
     @Override

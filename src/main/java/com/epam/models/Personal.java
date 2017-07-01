@@ -1,8 +1,5 @@
 package com.epam.models;
 
-/**
- * Created by Администратор on 22.05.2017.
- */
 public class Personal {
     private long id;
     private long patient_id;
@@ -54,8 +51,7 @@ public class Personal {
         Personal personal = (Personal) o;
 
         if (id != personal.id) return false;
-        if (patient_id != personal.patient_id) return false;
-        return user_id == personal.user_id;
+        return patient_id == personal.patient_id && user_id == personal.user_id;
     }
 
     @Override

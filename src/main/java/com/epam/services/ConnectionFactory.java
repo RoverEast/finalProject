@@ -8,10 +8,6 @@ import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-
-/**
- * Created by Администратор on 27.05.2017.
- */
 public class ConnectionFactory {
     private static ConnectionFactory instance = null;
     private List<Connection> connections;
@@ -24,7 +20,7 @@ public class ConnectionFactory {
      *
      * @return Manager object
      */
-    public synchronized static ConnectionFactory getInstance() {
+    synchronized static ConnectionFactory getInstance() {
         if (instance == null)
             instance = new ConnectionFactory();
         return instance;
@@ -62,11 +58,9 @@ public class ConnectionFactory {
      *
      * @return Database connection
      */
-    public synchronized Connection getConnection() {
+    synchronized Connection getConnection() {
         if (connections.size() != 0) {
             return connections.remove(0);
-        }else {
-
         }
         return null;
     }

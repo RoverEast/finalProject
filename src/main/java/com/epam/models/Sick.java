@@ -1,8 +1,5 @@
 package com.epam.models;
 
-/**
- * Created by Администратор on 22.05.2017.
- */
 public class Sick {
     private long id;
     private String name;
@@ -38,8 +35,7 @@ public class Sick {
 
         Sick sick = (Sick) o;
 
-        if (id != sick.id) return false;
-        return name != null ? name.equals(sick.name) : sick.name == null;
+        return id == sick.id && (name != null ? name.equals(sick.name) : sick.name == null);
     }
 
     @Override

@@ -3,14 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="${locale}"/>
 <fmt:setBundle basename="messages" var="messages"/>
-<%--
-  Created by IntelliJ IDEA.
-  User: Администратор
-  Date: 19.05.2017
-  Time: 22:40
-  To change this template use File | Settings | File Templates.
-
---%>
 
 <t:_tag title="Login">
     <jsp:body>

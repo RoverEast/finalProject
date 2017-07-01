@@ -41,16 +41,6 @@ public class OperationsService {
     }
 
     /**
-     * get operation
-     *
-     * @param id operation id
-     * @return operation
-     */
-    public Operations findByID(Long id) {
-        return operationsDao.IdFind(id);
-    }
-
-    /**
      * check if user has operation
      *
      * @param patientId   patient id
@@ -58,7 +48,7 @@ public class OperationsService {
      * @return true if has
      */
     public boolean checkOperationId(Long patientId, Long operationId) {
-        return operationsDao.IdFind(patientId, operationId) != null;
+        return operationsDao.idFind(patientId, operationId) != null;
     }
 }
 

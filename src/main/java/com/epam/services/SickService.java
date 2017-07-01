@@ -48,7 +48,7 @@ public class SickService {
      * @return true if has
      */
     public boolean checkSickId(Long patientId, Long sickId) {
-        return sickDao.IdFind(patientId, sickId) != null;
+        return sickDao.idFind(patientId, sickId) != null;
     }
 
 }

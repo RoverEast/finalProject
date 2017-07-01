@@ -1,7 +1,6 @@
 package com.epam.executor;
 
-//import com.epam.dao.DataAccessException;
-//import com.epam.models.Role;
+
 import com.epam.models.Position;
 import org.apache.log4j.Logger;
 
@@ -25,12 +24,12 @@ public class Executor {
             return stmt.executeUpdate();
         } catch (SQLException e) {
             logger.error(e);
-            throw new RuntimeException(e);//DataAccessException(e);
+            throw new RuntimeException(e);
         }
     }
 
 
-    public <T> T selectOne(String query, Map<T> mapper, Object... params) {
+    public <T> T selectOne(String query, Mapper<T> mapper, Object... params) {
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             setParams(stmt, params);
@@ -45,11 +44,11 @@ public class Executor {
 
         } catch (SQLException e) {
             logger.error(e);
-            throw new RuntimeException(e);//DataAccessException(e);
+            throw new RuntimeException(e);
         }
     }
 
-    public <T> List<T> selectList(String query, Map<T> mapper, Object... params) {
+    public <T> List<T> selectList(String query, Mapper<T> mapper, Object... params) {
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             setParams(stmt, params);
@@ -61,7 +60,7 @@ public class Executor {
 
             return list;
         } catch (SQLException e) {
-            throw new RuntimeException(e);//DataAccessException(e);
+            throw new RuntimeException(e);
         }
     }
 

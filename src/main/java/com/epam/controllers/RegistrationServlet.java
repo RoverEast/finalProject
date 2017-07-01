@@ -21,14 +21,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-/**
- * Created by Администратор on 28.05.2017.
- */
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
 
     private static Logger logger = Logger.getLogger(RegistrationServlet.class);
-    UserService service;
+    private UserService service;
 
     @Override
     public void init() throws ServletException{
@@ -40,7 +37,6 @@ public class RegistrationServlet extends HttpServlet {
         }
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("post");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String firstName = request.getParameter("firstName");
@@ -48,7 +44,6 @@ public class RegistrationServlet extends HttpServlet {
         String middlename = request.getParameter("middlename");
         String position = request.getParameter("position") ;
         String birthDate = request.getParameter("birthDate");
-        System.out.println(birthDate);
         if(StringUtils.isBlank(middlename))
             middlename="";
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");

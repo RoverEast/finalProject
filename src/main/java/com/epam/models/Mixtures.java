@@ -1,8 +1,5 @@
 package com.epam.models;
 
-/**
- * Created by Администратор on 22.05.2017.
- */
 public class Mixtures {
     private long id;
     private String name;
@@ -38,8 +35,7 @@ public class Mixtures {
 
         Mixtures mixtures = (Mixtures) o;
 
-        if (id != mixtures.id) return false;
-        return name != null ? name.equals(mixtures.name) : mixtures.name == null;
+        return id == mixtures.id && (name != null ? name.equals(mixtures.name) : mixtures.name == null);
     }
 
     @Override
