@@ -58,7 +58,6 @@ public class ReservationServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("get reservation");
         List<User> docList = service.getAllInPosition(1);
         List<User> nurseList = service.getAllInPosition(2);
         request.setAttribute("docList", docList);
