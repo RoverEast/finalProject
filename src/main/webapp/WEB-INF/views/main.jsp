@@ -36,12 +36,12 @@
                     </table>
                     <button type="submit"><fmt:message key="signIn" bundle="${messages}"/></button>
                 </form>
-                <button onclick="a()"><fmt:message key="registers" bundle="${messages}"/></button>
+                <button onclick="toRegistration()"><fmt:message key="registers" bundle="${messages}"/></button>
             </div>
         </div>
 
         <script type="text/javascript">
-            function a() {
+            function toRegistration() {
                 location.href = "${pageContext.request.contextPath}/registration";
             }</script>
 
