@@ -25,6 +25,7 @@ public class LoginServlet extends HttpServlet{
             service = new UserService();
         } catch (SQLException e) {
             e.printStackTrace();
+            logger.error(e);
         }
     }
 

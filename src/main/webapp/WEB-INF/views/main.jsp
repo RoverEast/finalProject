@@ -39,12 +39,6 @@
                 <button onclick="toRegistration()"><fmt:message key="registers" bundle="${messages}"/></button>
             </div>
         </div>
-
-        <script type="text/javascript">
-            function toRegistration() {
-                location.href = "${pageContext.request.contextPath}/registration";
-            }</script>
-
     </jsp:body>
 
 </t:_tag>

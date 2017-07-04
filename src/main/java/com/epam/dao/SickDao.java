@@ -33,7 +33,7 @@ public class SickDao implements Dao<Sick, Long> {
 
     @Override
     public Sick idFind(Long id) {
-        return null;
+        return executor.selectOne(FIND_BY_ID, new SickMapper(),id);
     }
 
     @Override

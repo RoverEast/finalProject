@@ -39,7 +39,6 @@ public class PersonalHandlerServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String locale = String.valueOf((request.getSession().getAttribute("locale")));
         Long patientId = Long.parseLong(request.getParameter("patient"));
         User user = (User) request.getSession().getAttribute("user");
         request.getSession().setAttribute("patient1", service.getById(patientId));
@@ -79,7 +78,6 @@ public class PersonalHandlerServlet extends HttpServlet {
             }
         }
         if(request.getParameter("addOperations") != null){
-            System.out.println("add Operation");
             Long operationId = Long.parseLong(request.getParameter("operations"));
             if (!operationsService.checkOperationId(patientId,operationId)) {
                 patient.setIdOperations(operationId);
@@ -88,7 +86,6 @@ public class PersonalHandlerServlet extends HttpServlet {
             }
         }
         if(request.getParameter("addProcedure") != null){
-            System.out.println("add Procedure");
             Long procedureId = Long.parseLong(request.getParameter("procedure"));
             if (!procedureService.checkProcedureId(patientId,procedureId)) {
                 patient.setIdProcedure(procedureId);
@@ -99,29 +96,24 @@ public class PersonalHandlerServlet extends HttpServlet {
         }
 
         if (request.getParameter("healSick")!=null){
-            System.out.println("healSick");
             Long sickId = Long.parseLong(request.getParameter("sick"));
             patientService.healSmth("idSick = ?",patientId,sickId);
             response.sendRedirect("/handler");
         }
 
         if (request.getParameter("healMixture")!=null){
-            System.out.println("healMixture");
             Long mixtureId = Long.parseLong(request.getParameter("mixture"));
             patientService.healSmth("idMixtures = ?",patientId,mixtureId);
             response.sendRedirect("/handler");
         }
 
         if (request.getParameter("healOperations")!=null){
-            System.out.println("healOperations");
-            System.out.println(request.getParameter("operations"));
             Long operationId = Long.parseLong(request.getParameter("operations"));
             patientService.healSmth("idOperations = ?",patientId,operationId);
             response.sendRedirect("/handler");
         }
 
         if (request.getParameter("healProcedure")!=null){
-            System.out.println("healProcedure");
             Long procedureId = Long.parseLong(request.getParameter("procedure"));
             patientService.healSmth("idProcedure = ?",patientId,procedureId);
             response.sendRedirect("/handler");
@@ -137,11 +129,9 @@ public class PersonalHandlerServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("personal handler get");
         String locale = String.valueOf((request.getSession().getAttribute("locale")));
         User user = (User) request.getSession().getAttribute("user");
         User patient = (User) request.getSession().getAttribute("patient1");
-        System.out.println(patient);
         Long patientId = patient.getId();
 
         List<Sick> sicks = sickService.getAllSicks();

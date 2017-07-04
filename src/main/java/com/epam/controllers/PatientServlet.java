@@ -4,6 +4,7 @@ import com.epam.models.*;
 import com.epam.services.*;
 import com.epam.utils.Discharge;
 import com.epam.utils.View;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +18,7 @@ import java.util.List;
 @WebServlet("/patient")
 public class PatientServlet extends HttpServlet {
 
-
+    private static Logger logger = Logger.getLogger(PatientServlet.class);
     private UserService service;
     private SickService sickService;
     private MixturesService mixturesService;
@@ -35,6 +36,7 @@ public class PatientServlet extends HttpServlet {
             procedureService = new ProcedureService();
             patientService = new PatientService();
         } catch (SQLException e) {
+            logger.error(e);
             e.printStackTrace();
         }
     }
@@ -43,7 +45,6 @@ public class PatientServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         User doctor = service.findPersonal(1,user.getId());
         User nurse = service.findPersonal(2,user.getId());
-        List<User> docList = service.getAllInPosition(1);
         List<Sick> sickList = sickService.getAllUserSick(user.getId());
         List<Mixtures> mixturesList = mixturesService.getAllUserMixtures(user.getId());
         List<Operations> operationsList = operationsService.getAllUserOperations(user.getId());
@@ -74,7 +75,6 @@ public class PatientServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         User doctor = service.findPersonal(1,user.getId());
         User nurse = service.findPersonal(2,user.getId());
-        List<User> docList = service.getAllInPosition(1);
         List<Sick> sickList = sickService.getAllUserSick(user.getId());
         List<Mixtures> mixturesList = mixturesService.getAllUserMixtures(user.getId());
         List<Operations> operationsList = operationsService.getAllUserOperations(user.getId());

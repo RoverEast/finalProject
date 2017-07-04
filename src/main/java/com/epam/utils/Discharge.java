@@ -10,7 +10,7 @@ public class Discharge {
     /**
      * list of discharged patients
      */
-    public static ArrayList<User> dischargeList = new ArrayList();
+    private static ArrayList<User> dischargeList = new ArrayList();
 
     /**
      * add to list
@@ -28,8 +28,8 @@ public class Discharge {
      * @return true if user has been found
      */
     public static boolean checkUser(User user) {
-        for (int i = 0; i < dischargeList.size(); i++) {
-            if (user.getId() == dischargeList.get(i).getId())
+        for (User aDischargeList : dischargeList) {
+            if (user.getId() == aDischargeList.getId())
                 return true;
         }
         return false;
@@ -39,6 +39,7 @@ public class Discharge {
      * delete user from discharged list
      *
      * @param user
+     *          user
      */
     public static void deleteUser(User user) {
         for (int i = 0; i < dischargeList.size(); i++) {

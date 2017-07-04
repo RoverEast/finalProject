@@ -6,6 +6,7 @@ import com.epam.models.User;
 import com.epam.services.SickService;
 import com.epam.services.UserService;
 import com.epam.utils.View;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +20,7 @@ import java.util.List;
 @WebServlet(value = "/personal")
 public class PersonalServlet extends HttpServlet {
 
+    private static Logger logger = Logger.getLogger(PersonalServlet.class);
     private UserService service;
 
     @Override
@@ -26,6 +28,7 @@ public class PersonalServlet extends HttpServlet {
         try {
             service = new UserService();
         } catch (SQLException e) {
+            logger.error(e);
             e.printStackTrace();
         }
     }

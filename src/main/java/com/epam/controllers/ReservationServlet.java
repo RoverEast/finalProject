@@ -33,8 +33,8 @@ public class ReservationServlet extends HttpServlet {
             patientService = new PatientService();
             personalService = new PersonalService();
         } catch (SQLException e) {
-            e.printStackTrace();
             logger.error(e);
+            e.printStackTrace();
         }
     }
 

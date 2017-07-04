@@ -6,9 +6,6 @@ import com.epam.executor.Mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by Администратор on 27.05.2017.
- */
 public class MixturesMapper implements Mapper<Mixtures> {
 
     private static final String ID = "id";

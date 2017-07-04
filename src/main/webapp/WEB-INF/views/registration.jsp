@@ -81,14 +81,7 @@
             </table>
             <button type="submit" value="Submit" ><fmt:message key="submit" bundle="${messages}"/></button>
 
-
         </form>
         <button onclick="toMain()"><fmt:message key="back" bundle="${messages}"/></button>
-
-        <script>
-            function toMain() {
-                location.href = "${pageContext.request.contextPath}/login";
-            }
-        </script>
     </jsp:body>
 </t:_tag>

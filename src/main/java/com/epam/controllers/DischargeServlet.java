@@ -3,6 +3,7 @@ package com.epam.controllers;
 import com.epam.models.User;
 import com.epam.services.*;
 import com.epam.utils.Discharge;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +16,7 @@ import java.sql.SQLException;
 @WebServlet("/discharge")
 public class DischargeServlet extends HttpServlet {
 
-
+    private static Logger logger = Logger.getLogger(DischargeServlet.class);
     private UserService service;
     private PersonalService personalService;
 
@@ -25,6 +26,7 @@ public class DischargeServlet extends HttpServlet {
             service = new UserService();
             personalService = new PersonalService();
         } catch (SQLException e) {
+            logger.error(e);
             e.printStackTrace();
         }
     }

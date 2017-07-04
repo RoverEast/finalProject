@@ -3,6 +3,7 @@ package com.epam.controllers;
 import com.epam.models.Position;
 import com.epam.models.User;
 import com.epam.services.PatientService;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 @WebServlet("/account")
 public class AccountServlet extends HttpServlet {
 
+    private static Logger logger = Logger.getLogger(AccountServlet.class);
     private PatientService patientService;
 
     @Override
@@ -22,6 +24,7 @@ public class AccountServlet extends HttpServlet {
         try {
             patientService = new PatientService();
         } catch (SQLException e) {
+            logger.error(e);
             e.printStackTrace();
         }
     }

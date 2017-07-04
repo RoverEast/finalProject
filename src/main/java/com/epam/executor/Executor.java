@@ -2,8 +2,10 @@ package com.epam.executor;
 
 
 import com.epam.models.Position;
+import com.epam.services.ConnectionFactory;
 import org.apache.log4j.Logger;
 
+import java.security.PrivateKey;
 import java.sql.*;
 import java.sql.Date;
 import java.util.*;
@@ -11,11 +13,12 @@ import java.util.*;
 public class Executor {
 
     private final Connection connection;
+    private static ConnectionFactory pool = new ConnectionFactory();
 
     private static Logger logger = Logger.getLogger(Executor.class);
 
     public Executor(Connection connection) {
-        this.connection = connection;
+        this.connection = pool.getConnection();
     }
 
     public int execUpdate(String query, Object... params) {
@@ -24,7 +27,9 @@ public class Executor {
             return stmt.executeUpdate();
         } catch (SQLException e) {
             logger.error(e);
-            throw new RuntimeException(e);
+            throw new UnsupportedOperationException(e);
+        } finally {
+            pool.putConnection(connection);
         }
     }
 
@@ -44,7 +49,9 @@ public class Executor {
 
         } catch (SQLException e) {
             logger.error(e);
-            throw new RuntimeException(e);
+            throw new UnsupportedOperationException(e);
+        } finally {
+            pool.putConnection(connection);
         }
     }
 
@@ -57,10 +64,11 @@ public class Executor {
             while (resultSet.next()) {
                 list.add(mapper.setParams(resultSet));
             }
-
             return list;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new UnsupportedOperationException(e);
+        } finally {
+            pool.putConnection(connection);
         }
     }
 

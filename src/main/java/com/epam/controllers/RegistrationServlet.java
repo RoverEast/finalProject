@@ -51,8 +51,8 @@ public class RegistrationServlet extends HttpServlet {
         try {
             date = dateFormat.parse(birthDate);
         } catch (ParseException e) {
-            e.printStackTrace();
             logger.error(e);
+            e.printStackTrace();
         }
         SimpleDateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
         java.sql.Date bDate = java.sql.Date.valueOf(dateFormat1.format(date));

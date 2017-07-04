@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Администратор
-  Date: 18.06.2017
-  Time: 12:19
-  To change this template use File | Settings | File Templates.
---%>
 <!DOCTYPE html>
 <%@tag description="Overall Page template" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -20,6 +13,7 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css"/>
     <link href="${pageContext.request.contextPath}/resources/bootstrap/css/style.css" rel="stylesheet">
+
 
 </head>
 <body>
@@ -78,6 +72,9 @@
 </body>
 
 <script type="text/javascript"
-        src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.js"></script>
+        src="s"></script>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/bootstrap/js/scripts.js"></script>
+
 
 </html>

@@ -6,7 +6,7 @@
 <fmt:setLocale value="${locale}"/>
 <fmt:setBundle basename="messages" var="messages"/>
 
-<t:_tag>
+<t:_tag title="Staff page">
     <jsp:body>
         <h3><fmt:message
                 key="welcom" bundle="${messages}"/> ${user.firstName} ${user.secondName}</h3>

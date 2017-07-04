@@ -6,9 +6,6 @@ import com.epam.models.Procedures;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by Администратор on 02.06.2017.
- */
 public class ProceduresMapper implements Mapper<Procedures> {
 
     private static final String ID = "id";

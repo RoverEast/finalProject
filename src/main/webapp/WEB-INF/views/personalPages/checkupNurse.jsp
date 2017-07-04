@@ -21,7 +21,7 @@
                             <fmt:message key="emptyList" bundle="${messages}"/>
                         </c:if>
                         <c:if test="${fn:length(mixturesList) gt 0}">
-                            <button onclick="loadXMLDoc()"  type="submit" name="healMixture"><fmt:message key="do" bundle="${messages}"/></button>
+                            <button type="submit" name="healMixture"><fmt:message key="do" bundle="${messages}"/></button>
                         </c:if>                    </form>
                 </td>
 
@@ -41,13 +41,7 @@
                 </td>
             </tr>
         </table>
-        <button onclick="toMain()">Cancel</button>
-
-        <script>
-            function toMain() {
-                location.href = "${pageContext.request.contextPath}/account";
-            }
-        </script>
+        <button onclick="toStaffPage()">Cancel</button>
     </jsp:body>
 </t:_tag>
 

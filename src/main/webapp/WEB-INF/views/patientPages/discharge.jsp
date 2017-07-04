@@ -30,11 +30,6 @@
                 </tr>
             </table>
         </form>
-        <script>
-            function toMain() {
-                location.href = "${pageContext.request.contextPath}/login";
-            }
-        </script>
     </jsp:body>
 </t:_tag>
 

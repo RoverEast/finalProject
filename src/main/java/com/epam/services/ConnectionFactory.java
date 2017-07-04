@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 public class ConnectionFactory {
     private static ConnectionFactory instance = null;
     private List<Connection> connections;
-    private ResourceBundle properties = null;
     private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(ConnectionFactory.class);
     private static final int SIZE = 100;
 
@@ -29,10 +28,10 @@ public class ConnectionFactory {
     /**
      * Creating queue connections to the database
      */
-    private ConnectionFactory() {
+    public ConnectionFactory() {
 
-        properties = ResourceBundle.getBundle("settings");
-        connections = new ArrayList<Connection>();
+        ResourceBundle properties = ResourceBundle.getBundle("settings");
+        connections = new ArrayList<>();
         String url = properties.getString("url");
         String user = properties.getString("user");
         String password = properties.getString("password");
@@ -58,7 +57,7 @@ public class ConnectionFactory {
      *
      * @return Database connection
      */
-    synchronized Connection getConnection() {
+    public synchronized Connection getConnection() {
         if (connections.size() != 0) {
             return connections.remove(0);
         }
