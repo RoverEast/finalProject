@@ -33,13 +33,6 @@ public class PersonalServlet extends HttpServlet {
         }
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = (User) request.getSession().getAttribute("user");
-        List<User> patients = service.findAllPatients(user.getId());
-        request.setAttribute("patients",patients);
-        View.viewPage("personalPages/staffPage",request,response);
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         List<User> patients = service.findAllPatients(user.getId());

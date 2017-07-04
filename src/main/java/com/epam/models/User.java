@@ -60,8 +60,8 @@ public class User {
         this.password = password;
     }
 
-    public Position getPosition() {
-        return position;
+    public int getPosition() {
+        return position.ordinal()+1;
     }
 
     public void setPosition(Position position) {

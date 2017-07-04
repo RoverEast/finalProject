@@ -14,12 +14,11 @@ public class LanguageServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String locale = req.getParameter("local");
+        String locale = req.getParameter("lang");
         if (locale.equals("rus")){
             req.getSession().setAttribute("locale","ru_RU");
         }else{
             req.getSession().setAttribute("locale","en_EN");
         }
-        resp.sendRedirect(req.getHeader("referer"));
     }
 }

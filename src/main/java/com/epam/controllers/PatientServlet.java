@@ -43,32 +43,9 @@ public class PatientServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
-        User doctor = service.findPersonal(1,user.getId());
-        User nurse = service.findPersonal(2,user.getId());
-        List<Sick> sickList = sickService.getAllUserSick(user.getId());
-        List<Mixtures> mixturesList = mixturesService.getAllUserMixtures(user.getId());
-        List<Operations> operationsList = operationsService.getAllUserOperations(user.getId());
-        List<Procedures> proceduresList = procedureService.getAllUserProcedures(user.getId());
-        request.setAttribute("doctor", doctor);
-        request.setAttribute("nurse", nurse);
-        request.setAttribute("sickList",sickList);
-        request.setAttribute("mixturesList",mixturesList);
-        request.setAttribute("operationsList",operationsList);
-        request.setAttribute("proceduresList",proceduresList);
-        request.setAttribute("user",user);
-
-        if (request.getParameter("ok")!=null){
             Discharge.deleteUser(user);
-            View.viewPage("main",request,response);
-        }
+            response.sendRedirect("logout");
 
-        if (Discharge.checkUser(user)){
-            View.viewPage("discharge",request,response);
-            patientService.deleteUserById(user.getId());
-        }
-        if (!patientService.checkUserByUserId(user.getId()))
-            request.getRequestDispatcher("reservation").forward(request, response);
-        View.viewPage("patientPage",request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -86,6 +63,8 @@ public class PatientServlet extends HttpServlet {
         request.setAttribute("operationsList",operationsList);
         request.setAttribute("proceduresList",proceduresList);
         request.setAttribute("user",user);
+
+
         if (Discharge.checkUser(user)){
             View.viewPage("patientPages/discharge",request,response);
             patientService.deleteUserById(user.getId());

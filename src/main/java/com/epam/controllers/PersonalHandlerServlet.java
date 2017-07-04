@@ -120,9 +120,9 @@ public class PersonalHandlerServlet extends HttpServlet {
         }
 
         if (request.getParameter("select")!=null){
-            if(user.getPosition().equals(Position.DOC)){
+            if(user.getPosition()==1){
                 View.viewPage("personalPages/checkup",request,response);
-            }else if (user.getPosition().equals(Position.NURSE)){
+            }else if (user.getPosition()==2){
                 View.viewPage("personalPages/checkupNurse",request,response);
             }
         }
@@ -156,9 +156,9 @@ public class PersonalHandlerServlet extends HttpServlet {
             String message = Discharge.chooseMessage(locale);
             request.setAttribute("message",message);
         }
-        if(user.getPosition().equals(Position.DOC)){
+        if(user.getPosition()==1){
             View.viewPage("personalPages/checkup",request,response);
-        }else if (user.getPosition().equals(Position.NURSE)){
+        }else if (user.getPosition()==2){
             View.viewPage("personalPages/checkupNurse",request,response);
         }
     }

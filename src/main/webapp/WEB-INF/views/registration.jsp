@@ -58,13 +58,13 @@
                     <label><fmt:message key="position" bundle="${messages}"/></label>
                     </td>
                     <td>
-                    <input type="radio" name="position" value="DOC" required>
+                    <input type="radio" name="position" value="1" required>
                     <fmt:message key="doctor" bundle="${messages}"/>
                     <br>
-                    <input type="radio" name="position" value="NURSE" required>
+                    <input type="radio" name="position" value="2" required>
                     <fmt:message key="nurse" bundle="${messages}"/>
                     <br>
-                    <input type="radio" name="position" value="PATIENT" required>
+                    <input type="radio" name="position" value="3" required>
                     <fmt:message key="patient" bundle="${messages}"/>
                     </td>
                 </tr>

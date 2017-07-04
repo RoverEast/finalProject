@@ -31,3 +31,26 @@ function loadXMLDoc() {
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xmlhttp.send();
 }
+
+function changeLanguage(lang) {
+    var xmlhttp ;
+    if (window.XMLHttpRequest)
+        xmlhttp= new XMLHttpRequest();
+    else
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4) {
+            if (xmlhttp.status == 200) {
+                setTimeout(function (){
+                    window.location.reload();
+                }, 0);
+            } else {
+                alert('error ' + xmlhttp.status);
+            }
+        }
+    };
+
+    xmlhttp.open("POST", "/config/language");
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp.send("lang="+lang);
+}

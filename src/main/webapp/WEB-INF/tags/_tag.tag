@@ -28,17 +28,17 @@
                 <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2 col-lg-offset-5 col-md-offset-5 col-sm-offset-2 col-xs-offset-2 login">
                     <ul class="nav navbar-nav">
                         <li>
+                            <button onclick="changeLanguage('rus')" class="btn btn-default btn-block" name="local"
+                                    value="rus">Русский
+                            </button>
                             <form method="post" action="${pageContext.request.contextPath}/config/language">
-                                <button class="btn btn-default btn-block" type="submit" formmethod="post" name="local"
-                                        value="rus">Русский
-                                </button>
                             </form>
                         </li>
                         <li>
+                            <button onclick="changeLanguage('en')" class="btn btn-default btn-block" name="local"
+                                    value="en">English
+                            </button>
                             <form method="post" action="${pageContext.request.contextPath}/config/language">
-                                <button class="btn btn-default btn-block" type="submit" formmethod="post" name="local"
-                                        value="en">English
-                                </button>
                             </form>
                         </li>
                         <li>

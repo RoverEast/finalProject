@@ -25,7 +25,7 @@
                     <td>
                     </td>
                     <td>
-                        <button onclick="toMain" type="submit" name="ok" value="Submit"><fmt:message key="submit" bundle="${messages}"/></button>
+                        <button type="submit" value="Submit"><fmt:message key="submit" bundle="${messages}"/></button>
                     </td>
                 </tr>
             </table>

@@ -42,7 +42,7 @@ public class RegistrationServlet extends HttpServlet {
         String firstName = request.getParameter("firstName");
         String secondName = request.getParameter("secondName");
         String middlename = request.getParameter("middlename");
-        String position = request.getParameter("position") ;
+        int position = Integer.parseInt(request.getParameter("position"));
         String birthDate = request.getParameter("birthDate");
         if(StringUtils.isBlank(middlename))
             middlename="";
@@ -56,7 +56,8 @@ public class RegistrationServlet extends HttpServlet {
         }
         SimpleDateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
         java.sql.Date bDate = java.sql.Date.valueOf(dateFormat1.format(date));
-        User user = new User(username,password,Position.valueOf(position),firstName,secondName,middlename,bDate);
+        User user = new User(username,password,Position.takePosition(position),firstName,secondName,middlename,bDate);
+        response.setCharacterEncoding("utf-8");
         if (service.addUser(user)){
             request.getSession().setAttribute("user",user);
             request.getRequestDispatcher("account").forward(request,response);

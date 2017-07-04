@@ -41,7 +41,7 @@ public class AccountServlet extends HttpServlet {
         User user = (User) req.getSession().getAttribute("user");
         req.getSession().removeAttribute("message");
         req.setAttribute("user", user);
-        if (user.getPosition().equals(Position.PATIENT))
+        if (user.getPosition()==3)
             if (patientService.checkUserByUserId(user.getId())) {
                 resp.sendRedirect("patient");
             } else
