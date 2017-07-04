@@ -18,7 +18,7 @@ public class PatientService {
      * @throws SQLException
      */
     public PatientService() throws SQLException {
-        patientDao = new PatientDao(new Executor(ConnectionFactory.getInstance().getConnection()));
+        patientDao = new PatientDao(new Executor());
     }
 
     /**

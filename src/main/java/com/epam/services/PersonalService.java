@@ -17,7 +17,7 @@ public class PersonalService {
      * @throws SQLException
      */
     public PersonalService() throws SQLException {
-        personalDao = new PersonalDao(new Executor(ConnectionFactory.getInstance().getConnection()));
+        personalDao = new PersonalDao(new Executor());
     }
 
     /**

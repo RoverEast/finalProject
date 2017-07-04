@@ -18,7 +18,7 @@ public class ProcedureService {
      * @throws SQLException
      */
     public ProcedureService() throws SQLException {
-        proceduresDao = new ProceduresDao(new Executor(ConnectionFactory.getInstance().getConnection()));
+        proceduresDao = new ProceduresDao(new Executor());
     }
 
     /**

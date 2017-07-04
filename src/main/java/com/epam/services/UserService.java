@@ -17,7 +17,7 @@ public class UserService {
      * @throws SQLException
      */
     public UserService() throws SQLException {
-        userDao = new UserDao(new Executor(ConnectionFactory.getInstance().getConnection()));
+        userDao = new UserDao(new Executor());
     }
 
     /**

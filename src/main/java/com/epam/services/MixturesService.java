@@ -18,7 +18,7 @@ public class MixturesService {
      * @throws SQLException
      */
     public MixturesService() throws SQLException {
-        mixturesDao = new MixturesDao(new Executor(ConnectionFactory.getInstance().getConnection()));
+        mixturesDao = new MixturesDao(new Executor());
     }
 
     /**

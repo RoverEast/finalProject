@@ -17,7 +17,7 @@ public class Executor {
 
     private static Logger logger = Logger.getLogger(Executor.class);
 
-    public Executor(Connection connection) {
+    public Executor() {
         this.connection = pool.getConnection();
     }
 

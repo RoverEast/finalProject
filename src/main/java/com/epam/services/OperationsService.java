@@ -18,7 +18,7 @@ public class OperationsService {
      * @throws SQLException
      */
     public OperationsService() throws SQLException {
-        operationsDao = new OperationsDao(new Executor(ConnectionFactory.getInstance().getConnection()));
+        operationsDao = new OperationsDao(new Executor());
     }
 
     /**

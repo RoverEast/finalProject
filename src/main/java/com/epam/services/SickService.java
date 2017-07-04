@@ -18,7 +18,7 @@ public class SickService {
      * @throws SQLException
      */
     public SickService() throws SQLException {
-        sickDao = new SickDao(new Executor(ConnectionFactory.getInstance().getConnection()));
+        sickDao = new SickDao(new Executor());
     }
 
     /**
