@@ -89,7 +89,6 @@ public class PersonalHandlerServlet extends HttpServlet {
             Long procedureId = Long.parseLong(request.getParameter("procedure"));
             if (!procedureService.checkProcedureId(patientId,procedureId)) {
                 patient.setIdProcedure(procedureId);
-                System.out.println(patient.getIdProcedure());
                 patientService.addPatient(patient);
                 response.sendRedirect("/handler");
             }
