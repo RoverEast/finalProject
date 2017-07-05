@@ -19,7 +19,7 @@ public class ConnectionFactory {
      *
      * @return Manager object
      */
-    synchronized static ConnectionFactory getInstance() {
+    public synchronized static ConnectionFactory getInstance() {
         if (instance == null)
             instance = new ConnectionFactory();
         return instance;
@@ -28,7 +28,7 @@ public class ConnectionFactory {
     /**
      * Creating queue connections to the database
      */
-    public ConnectionFactory() {
+    private ConnectionFactory() {
 
         ResourceBundle properties = ResourceBundle.getBundle("settings");
         connections = new ArrayList<>();

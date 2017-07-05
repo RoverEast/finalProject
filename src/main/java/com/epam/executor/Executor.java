@@ -13,7 +13,7 @@ import java.util.*;
 public class Executor {
 
     private final Connection connection;
-    private static ConnectionFactory pool = new ConnectionFactory();
+    private static ConnectionFactory pool = ConnectionFactory.getInstance();
 
     private static Logger logger = Logger.getLogger(Executor.class);
 
